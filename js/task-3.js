@@ -5,11 +5,17 @@ class StringBuilder {
   constructor(initialValue) { this.#value = initialValue }
   
   getValue() { return this.#value }
-  padEnd (str) { this.#value = this.#value.padEnd(this.#value.length + str.length, str) }
-  padStart (str) { this.#value = this.#value.padStart(this.#value.length + str.length, str) }
+  padEnd(str) {
+    const totalLength = this.#value.length + str.length
+    this.#value = this.#value.padEnd(totalLength, str)
+  }
+  padStart(str) {
+    const totalLength = this.#value.length + str.length
+    this.#value = this.#value.padStart(totalLength, str)
+  }
   padBoth(str) {
-    this.#value = this.#value.padStart(this.#value.length + str.length, str)
-    this.#value = this.#value.padEnd(this.#value.length + str.length, str)
+    this.padStart(str)
+    this.padEnd(str)
   }
 }
 
